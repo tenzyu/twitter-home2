@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  twitter-home2:
+    container_name: twitter-home2
+    build: .
+    volumes:
+      - /home/deploy/twitter-home2/.env:/opt/.env
+    restart: always
