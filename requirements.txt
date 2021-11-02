@@ -1,5 +1,6 @@
 tweepy
 python-dotenv
+apscheduler
 
 pylint
 black
