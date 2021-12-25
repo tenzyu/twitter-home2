@@ -14,7 +14,7 @@ jobs:
       REMOTE_HOST: ${{ secrets.REMOTE_HOST}}
       REMOTE_USER: ${{ secrets.REMOTE_USER}}
       REMOTE_PORT: ${{ secrets.REMOTE_PORT}}
-      DIR_NAME: stream-tweet-in-list
+      DIR_NAME: twitter-home2
     steps:
       - uses: actions/checkout@v2
       - name: Prepare SSH
@@ -22,6 +22,7 @@ jobs:
           mkdir -p ~/.ssh
           echo "$PRIVATE_KEY" > ~/.ssh/key && chmod 600 ~/.ssh/key
           ssh-keyscan -p $REMOTE_PORT $REMOTE_HOST > ~/.ssh/known_hosts
+          
       - name: Deploy to VPS
         run: rsync -rltgoDzvO -e "ssh -o StrictHostKeyChecking=no -p $REMOTE_PORT -i ~/.ssh/key" $GITHUB_WORKSPACE $REMOTE_USER@$REMOTE_HOST:/home/$REMOTE_USER/
 
