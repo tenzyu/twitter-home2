@@ -6,4 +6,5 @@ services:
     build: .
     volumes:
       - /home/deploy/twitter-home2/.env:/opt/.env
+      - /home/deploy/twitter-home2/data.pkl:/opt/data.pkl
     restart: always
