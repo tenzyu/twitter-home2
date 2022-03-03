@@ -26,7 +26,10 @@ class Home2:
 
     def remove_all_list_members(self) -> None:
         user_ids = self.get_list_member_ids()
-        self.api.remove_list_members(list_id=self.list_id, user_id=user_ids)
+        try:
+            self.api.remove_list_members(list_id=self.list_id, user_id=user_ids)
+        except Exception:
+            pass
 
     def add_list_members(self) -> None:
         user_ids = self.get_random_user_ids().difference(self.pickle.data)
