@@ -20,7 +20,7 @@ class Home2:
 
     def get_random_user_ids(self) -> set[int]:
         tweets = self.api.search_tweets(
-            "-filter:retweets -filter:replies", count=100, lang="ja"
+            "-filter:retweets -filter:replies", count=200, lang="ja"
         )
         return set(map(lambda tweet: tweet.user.id, tweets))
 
